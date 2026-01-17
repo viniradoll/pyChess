@@ -1,17 +1,17 @@
-from chess.core.datatypes.Board import MatrixBoard
-from chess.core.datatypes.Pieces import Piece
-from chess.core.datatypes.Color import Color
+import chess.core.board as Board
+from chess.core.pieces import Pawn
+from chess.core.datatypes import Color
+from chess.core.datatypes import Square
 
 def test_opposite_colors():
     assert Color.WHITE is not Color.BLACK
 
-def test_instanciate_piece():
-    whiteBasePiece:Piece = Piece(Color.WHITE)
-
-    blackBasePiece = Piece(color=Color.BLACK)
-
-    assert isinstance(whiteBasePiece,Piece) and isinstance(blackBasePiece,Piece)
-
 def test_initiate_board():
-    board = MatrixBoard()
+    board = Board.MatrixBoard()
     assert board.grid == [[None]*8]*8
+
+def test_instanciate_pawn():
+    board = Board.MatrixBoard()
+    pawn = Pawn(Color.WHITE)
+    pawn.getMoveList(board, Square(row=2,col=5))
+

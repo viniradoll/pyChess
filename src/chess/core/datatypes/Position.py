@@ -1,5 +1,5 @@
-from chess.core.datatypes.Pieces import Piece
-from chess.core.datatypes.Square import Square
+import chess.core.pieces as Pieces
+import chess.core.datatypes as Datatypes
 
 class Position:
-    pieces: list[tuple[Square, Piece]]
+    pieces: list[tuple[Datatypes.Square, Pieces.Piece]]

@@ -1,7 +1,8 @@
-from .Move import Move
-from .Color import Color
+from abc import ABC, abstractmethod
+import chess.core.datatypes as datatypes
+import chess.core.board as board
 
-class Piece:
+class Piece(ABC):
     # Pices has already moved in this game
     hasMoved: bool = False
     # If piece can promote on the last rank (e.g. Pawn)
@@ -11,16 +12,9 @@ class Piece:
     # If piece can help a piece Castle (e.g. Rook)
     secundaryCastlePiece: bool = False
 
-    def __init__(self, color: Color):
+    def __init__(self, color: datatypes.Color):
         self.color = color
 
-    def onMove(self, move: Move):
-        pass
-
-    def getMoveList(self) -> list[Move]:
-        return []
-
-class Pawn(Piece):
-    
-    def getMoveList(self) -> list[Move]:
+    @abstractmethod
+    def getMoveList(self, board: board.Board, from_sq: datatypes.Square) -> list[datatypes.Square]:
         return []

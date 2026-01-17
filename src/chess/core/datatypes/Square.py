@@ -1,3 +1,4 @@
 class Square:
-    row: int
-    col: int
+    def __init__(self, row, col):
+        self.row: int = row
+        self.col: int = col
