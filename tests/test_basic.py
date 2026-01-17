@@ -14,4 +14,6 @@ def test_instanciate_pawn():
     board = Board.MatrixBoard()
     pawn = Pawn(Color.WHITE)
     pawn.getMoveList(board, Square(row=2,col=5))
+    print(pawn.getMoveList(board,Square(row=2,col=5)))
 
+test_instanciate_pawn()
