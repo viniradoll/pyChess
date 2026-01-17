@@ -1,4 +1,4 @@
-from .base import Piece
+from .base import Piece, SlidingPiece
 from .pawn import Pawn
 
-__all__ = ["Piece", "Pawn"]
+__all__ = ["Piece", "SlidingPiece", "Pawn"]

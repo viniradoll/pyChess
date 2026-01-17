@@ -16,5 +16,31 @@ class Piece(ABC):
         self.color = color
 
     @abstractmethod
-    def getMoveList(self, board: board.Board, from_sq: datatypes.Square) -> list[datatypes.Square]:
+    def getMoveList(self, board: board.BoardView, from_sq: datatypes.Square) -> list[datatypes.Move]:
         return []
+
+class SlidingPiece(Piece):
+    def __init__(self, color: datatypes.Color):
+        super().__init__(color)
+
+    @abstractmethod
+    def directions(self) -> list[tuple[int,int]]:
+        return []
+
+    def getMoveList(self, board: board.BoardView, from_sq: datatypes.Square) -> list[datatypes.Move]:
+        moveList = []
+        for direction in self.directions():
+            distance = 1
+            row, col = direction
+            newSquare = datatypes.Square(from_sq.row+(distance*row), from_sq.col+(distance*col))
+            while board.isAvailable(newSquare):
+                moveList.append(datatypes.Move(from_sq,to_sq=newSquare))
+                distance += 1
+                newSquare = datatypes.Square(from_sq.row+(distance*row), from_sq.col+(distance*col))
+            if board.isCapturable(newSquare, self.color):
+                moveList.append(datatypes.Move(from_sq,to_sq=newSquare))
+            
+            distance = 1
+        
+        return moveList
+            
