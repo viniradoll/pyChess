@@ -13,7 +13,4 @@ def test_initiate_board():
 def test_instanciate_pawn():
     board = Board.MatrixBoard()
     pawn = Pawn(Color.WHITE)
-    pawn.getMoveList(board, Square(row=2,col=5))
-    print(pawn.getMoveList(board,Square(row=2,col=5)))
-
-test_instanciate_pawn()
+    assert isinstance(pawn.getMoveList(board, Square(row=1,col=5)), list)
