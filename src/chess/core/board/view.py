@@ -11,7 +11,7 @@ class BoardView(ABC):
         ...
 
     def isInbound(self,sq:datatypes.Square) -> bool:
-        return True if sq.col < self.size and sq.row < self.size else False
+        return 0 <= sq.row < self.size and 0 <= sq.col < self.size
 
     def isEmpty(self, sq: datatypes.Square) -> bool:
         if not self.isInbound(sq):
