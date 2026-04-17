@@ -1,8 +1,8 @@
-import chess.core.board as board
+from chess.core.board.base import Board
 import chess.core.datatypes as datatypes
 import chess.core.pieces as pieces
 
-class MatrixBoard(board.Board):
+class MatrixBoard(Board):
     def __init__(self, size: int=8):
         super().__init__(size)
         self.grid: list[list[pieces.Piece | None]] = []

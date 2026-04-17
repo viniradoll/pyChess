@@ -1,9 +1,10 @@
-import chess.core.board as board
+from .view import BoardView
+from .position import Position
 from abc import ABC, abstractmethod
 import chess.core.datatypes as datatypes
 import chess.core.pieces as pieces
 
-class Board(board.BoardView, ABC):
+class Board(BoardView, ABC):
     def __init__(self, size: int):
         self.size: int = size
 
@@ -11,7 +12,7 @@ class Board(board.BoardView, ABC):
     def initialize(self):
         pass
 
-    def setupStartingPosition(self, position: datatypes.Position):
+    def setupStartingPosition(self, position: Position):
         for square, piece in position.pieces:
             self.setPieceAt(square, piece=piece)
 

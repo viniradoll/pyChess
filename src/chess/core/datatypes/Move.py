@@ -1,9 +1,9 @@
-import chess.core.datatypes as datatypes
+from chess.core.datatypes.square import Square
 
 class Move:
-    from_sq: datatypes.Square
-    to_sq: datatypes.Square
-    def __init__(self, from_sq:datatypes.Square, to_sq:datatypes.Square):
+    from_sq: Square
+    to_sq: Square
+    def __init__(self, from_sq:Square, to_sq:Square):
         self.from_sq = from_sq  
         self.to_sq = to_sq
 
