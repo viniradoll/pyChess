@@ -3,7 +3,7 @@ import chess.core.datatypes as datatypes
 import chess.core.board as board
 
 class Piece(ABC):
-    # Pices has already moved in this game
+    # Piece has already moved in this game
     hasMoved: bool = False
     # If piece can promote on the last rank (e.g. Pawn)
     canPromote: bool = False
